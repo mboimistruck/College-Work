@@ -1,20 +1,23 @@
+//Program Name: A2P1.cpp
+//Prorgammer Name: Michael Boimistruck
+//Date Last Compiled: Feb 07, 2016. 2:42 AM
+//Program Description: Manipulates user inputted data regarding monthly rainfall (mm) and determines the total, average,
+//						highest, and lowest rainfall over the year
+
 #include <iostream>
 #include <string>
 #include <windows.h>
 #include <conio.h>
 
-
 using namespace std;
 
 //Declarations
-string months[] = { "January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December" };
 double lowest = 9999999, highest = 0;
-double temps[12], total, average;
+double total, average = 0;
 
 
 //Function to determine which months matched up with the lowest temperature element position and then prints the months.
-void determine_min_rainfall() {
+void determine_min_rainfall(string months[], double temps[]) {
 	for (int i = 0; i < 12; i++) {
 
 		if (temps[i] == lowest) {
@@ -24,7 +27,7 @@ void determine_min_rainfall() {
 	}
 }
 //Function to determine which months matched up with the highest temperature element position and then prints the months.
-void determine_max_rainfall() {
+void determine_max_rainfall(string months[], double temps[]) {
 	for (int i = 0; i < 12; i++) {
 
 		if (temps[i] == highest) {
@@ -43,14 +46,15 @@ void gotoxy(int x, int y) {
 }
 
 //Function to gather data from user and determine the lowest/highest temperatures.
-void input_rainfall_data() {
+void input_rainfall_data(string months[], double temps[]) {
 
 	for (int i = 0; i < 12; i++) {
-		cout << "\tPlease enter the amount of rainfall (mm) for the month of " << months[i] << ": " << endl;
+		gotoxy(4, i + 1);
+		cout << "Please enter the amount of rainfall (mm) for the month of " << months[i] << ": ";
 
 	}
 	for (int i = 0; i < 12; i++) {
-		gotoxy(76, i);
+		gotoxy(73, i + 1);
 		cin >> temps[i];
 		cin.ignore();
 
@@ -66,7 +70,7 @@ void input_rainfall_data() {
 }
 
 //Function to calculate the total rainfall
-void calculate_total_and_average_rainfall() {
+void calculate_total_and_average_rainfall(double temps[]) {
 	for (int i = 0; i < 12; i++) {
 		total = total + temps[i];
 		average = total / 12;
@@ -75,23 +79,34 @@ void calculate_total_and_average_rainfall() {
 }
 
 //Function to output all the data
-void output_rainfall_report() {
+void output_rainfall_report(string months[], double temps[]) {
 	cout << "\n\tTotal rainfall for the year: " << total << endl;
 	cout << "\tAverage monthly rainfall: " << average << endl;
 	cout << "\n\tThe lowest rainfall (" << lowest << " mm) occured during: " << endl;
-	determine_min_rainfall();
+	determine_min_rainfall(months, temps);
 	cout << "\n\tThe highest rainfall (" << highest << " mm) occured during: " << endl;
-	determine_max_rainfall();
+	determine_max_rainfall(months, temps);
 
 }
 
 int main() {
+	string months[] = { "January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December" };
 
 	char check = 'y';
 	do {
-		input_rainfall_data();
-		calculate_total_and_average_rainfall();
-		output_rainfall_report();
+		double temps[12];
+		total = 0;
+		average = 0;
+		highest = 0;
+		lowest = 9999999;
+
+		system("cls");
+
+		input_rainfall_data(months, temps);
+		calculate_total_and_average_rainfall(temps);
+		output_rainfall_report(months, temps);
+		
 		cout << "\n\tWould you like to run the program again? y/n." << endl;
 		cin >> check;
 
