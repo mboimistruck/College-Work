@@ -3,6 +3,11 @@
 //Date Last Compiled: Feb 07, 2016. 2:05 AM
 //Program Description: Emulates a vending machine with a set stock/price. Returns total amount of product purchases.
 
+//Note: I apologize for the really disgusting code in update_vending(),
+//		 it was a lot cleaner before I remembered I had to not rewrite to the screen
+//		 every input causing screen flickers. So I had to change a lot around.
+//		 Hoping the comments make more sense of the code!
+
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -13,10 +18,8 @@ using namespace std;
 
 //Declarations
 int userInput = 0;
-int OUTCounter = 0;
 int purchasedCounter;
-
-char userCheck;
+int loopControl = 0;
 
 void gotoxy(int x, int y) {
 	COORD coords;
@@ -27,83 +30,106 @@ void gotoxy(int x, int y) {
 }
 void greetings() {
 	system("cls");
-	gotoxy(25,1);
+	gotoxy(25, 1);
 	cout << "Welcome to Vitto's!";
 	gotoxy(25, 2);
 	cout << "Mangiare, Mangiare!";
 	system("pause > nul");
 }
 
-void update_vending(string itemNames[], string itemPrices[], string quantities[]){
+void update_vending(string itemNames[], string itemPrices[], string quantities[]) {
 	int temp;
 
 	gotoxy(25, 1);
-	cout << "VITTO'S VENDETTA VENDING" << endl;
-	gotoxy(25, 3);
+	cout << "      VITTO'S VENDETTA VENDING" << endl; //intentional spacing to overwite the "Welcome" in 'Welcome to Vitto's from previous screen
+	gotoxy(25, 3);									  //^could have left this out but it makes it look more fluid^
 	cout << "CHOICE";
 	gotoxy(32, 3);
 	cout << "ITEM NAME";
 	gotoxy(51, 3);
 	cout << "PRICE";
-	gotoxy(57, 3);
+	gotoxy(58, 3);
 	cout << "QTY";
 
-	//Builds/Fills the menu
-	for (int i = 0; i < 8; i++) {
-		if (i == 7){
+	for (int i = 0; i < 8; i++) { 	//Builds/Fills the menu
+		if (i == 7) {
 			gotoxy(25, i + 4);
-			cout << "E.";
+			cout << "E."; // Puts an "E." as the last option, otherwise fills with ints from 1>7
 		}
 
 		else {
 			gotoxy(25, i + 4);
 			cout << i + 1 << ".";
 		}
-
+		gotoxy(24, 2);
+		for (int i = 0; i < 19; i++) { // Gets rid of the "Mangiare, Mangiare" on screen
+			gotoxy(25 + i, 2);
+			cout << ' ';
+		}
 		gotoxy(32, i + 4);
 		cout << itemNames[i];
 		gotoxy(51, i + 4);
 		cout << itemPrices[i];
-		gotoxy(57, i + 4);
+		gotoxy(59, i + 4);
 		cout << quantities[i];
 	}
 
-	do{
-		gotoxy(25, 13);
-		cout << "Select an item: ";
+	gotoxy(25, 13);
+	cout << "Select an item: ";
+
+	do {
+
+		if (purchasedCounter >= 35) { // break out if the user purchases all available stock
+			gotoxy(40, 13);
+			cout << " All stock is sold out, ";
+			gotoxy(40, 14);
+			cout << " please type 'E' to exit."; // Could have used break; here but didn't want
+												// to force the ui change on the user
+		}
+
+		loopControl++;
 		gotoxy(40, 13);
 		userInput = _getch();
-		//The below if statement converts user input that isn't an e to an integer, if it is an e it will switch the userCheck var to e...
-		//causing the program to break out.
+
 		if (userInput != 'e') {
 			userInput -= '0';
+			for (int i = 0; i < 9; i++) { // kills the stupid "SOLD OUT" that will appear if you try to buy stuff that is sold out
+				gotoxy(40 + i, 13);
+				cout << ' ';
+			}
+
 		}
 
 		else if (userInput == 'e') {
-			userCheck = 'e';
 			break;
+
 		}
 
-		if (quantities[userInput - 1] == "OUT") {
-			break;
+		if (quantities[userInput - 1] == "OUT") { // prints "Sold out!" if the user attempts to buy sold out stuff
+			gotoxy(40, 13);
+			cout << "Sold out!";
 		}
-		//Below converts the input to an int, does int subtraction, stores it back in the array as a string.
-		else if ((userInput <= 7 && stoi(quantities[userInput - 1]) <= 5) && (userInput > 0 && stoi(quantities[userInput - 1]) > 1)) {
-			temp = (stoi(quantities[userInput - 1]));
-			temp--;
+
+		else if ((userInput <= 7 && stoi(quantities[userInput - 1]) <= 5) && (userInput > 0 && stoi(quantities[userInput - 1]) > 1)) { // Converts input char to int,
+			temp = (stoi(quantities[userInput - 1]));																				   // does int math, converts &
+			temp--;																													   // saves to string array
 			purchasedCounter++;
 			quantities[userInput - 1] = to_string(temp);
 
 		}
-		//If the product chosen has 1 stock left and the user attempts to purchase it, switch the display to say OUT instead of 0
-		else if (stoi(quantities[userInput - 1]) == 1){
-			quantities[userInput - 1] = "OUT";
-			OUTCounter++;
+
+		else if (stoi(quantities[userInput - 1]) == 1) { // If the product chosen has 1 stock left and
+			quantities[userInput - 1] = "OUT";			 // the user attempts to purchase it, switch the display to say OUT instead of 0
 			purchasedCounter++;
 
 		}
+		if (loopControl == 1) { // resets the input for the user and writes the new quantity on screen
+			gotoxy(59, (int)userInput + 3);
+			cout << quantities[userInput - 1];
+			loopControl = 0;
+		}
+	} while (loopControl == 0);
 
-	} while(userInput == 0);
 }
 
 void thanks_for_shopping() {
@@ -115,15 +141,14 @@ void thanks_for_shopping() {
 	cout << "Thank You for Shopping at Vitto's!";
 
 	purchasedCounter = 0;
-	userCheck = '0';
-	OUTCounter = 0;
+	loopControl = 0;
 
 }
 
 
 int main() {
 	string itemNames[8] = { "Soprano Soup", "Godfather Pasta", "Gotti Gum", "Caprone Crisps", "Gambino Pie", "Luciano Lunch",
-							"Mafia Muffin", "No More Purchases" };
+		"Mafia Muffin", "No More Purchases" };
 	string itemPrices[8] = { "$4.75", "$5.85", "$2.50", "$3.00", "$6.75", "$8.50", "$1.75" };
 
 	char check = 'y';
@@ -132,12 +157,7 @@ int main() {
 		string quantities[8] = { "5", "5", "5", "5", "5", "5", "5" };
 
 		greetings();
-
-		while (userCheck != 'e' && OUTCounter < 7) {
-			system("cls");
-			update_vending(itemNames, itemPrices, quantities);
-		}
-
+		update_vending(itemNames, itemPrices, quantities);
 		thanks_for_shopping();
 
 		gotoxy(15, 3);
