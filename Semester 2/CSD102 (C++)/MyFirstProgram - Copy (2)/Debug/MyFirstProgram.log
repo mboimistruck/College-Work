@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\micheal\documents\programming\college stuff\college-work\semester 2\csd102 (c++)\myfirstprogram - copy (2)\createclass.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\micheal\documents\programming\college stuff\college-work\semester 2\csd102 (c++)\myfirstprogram - copy (2)\source.cpp(87): warning C4244: 'initializing': conversion from 'wchar_t' to 'char', possible loss of data
+  MyFirstProgram.vcxproj -> C:\Users\Micheal\Documents\Programming\College Stuff\College-Work\Semester 2\CSD102 (C++)\MyFirstProgram - Copy (2)\Debug\MyFirstProgram.exe
