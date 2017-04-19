@@ -1,4 +1,5 @@
-﻿using MySql.Data;
+// credit to user on StackOverflow for the base of this class
+using MySql.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System;
