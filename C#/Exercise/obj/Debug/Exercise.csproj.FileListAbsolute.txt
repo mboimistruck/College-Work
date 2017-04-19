@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+S:\My Documents\Visual Studio 2015\Projects\C#\Exercise\bin\Debug\Exercise.exe.config
+S:\My Documents\Visual Studio 2015\Projects\C#\Exercise\bin\Debug\Exercise.exe
+S:\My Documents\Visual Studio 2015\Projects\C#\Exercise\bin\Debug\Exercise.pdb
+S:\My Documents\Visual Studio 2015\Projects\C#\Exercise\obj\Debug\Exercise.exe
+S:\My Documents\Visual Studio 2015\Projects\C#\Exercise\obj\Debug\Exercise.pdb
+=======
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\bin\Debug\Exercise.exe.config
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\bin\Debug\Exercise.exe
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\bin\Debug\Exercise.pdb
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\obj\Debug\Exercise.csprojResolveAssemblyReference.cache
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\obj\Debug\Exercise.exe
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Exercise\obj\Debug\Exercise.pdb
+>>>>>>> 937e080603bdfaefcb646f6718fe2efb7d46f8d8

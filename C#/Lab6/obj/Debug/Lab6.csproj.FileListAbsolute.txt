@@ -1,0 +1,23 @@
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Debug\Lab6.exe.config
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Debug\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Debug\Lab6.pdb
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Debug\Lab6.csprojResolveAssemblyReference.cache
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Debug\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Debug\Lab6.pdb
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\bin\Debug\Lab6.exe.config
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\obj\Debug\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\obj\Debug\Lab6.pdb
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\obj\Debug\Lab6.csprojResolveAssemblyReference.cache
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\bin\Debug\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17_FredCarella_csharp\Lab6\bin\Debug\Lab6.pdb
+<<<<<<< HEAD
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\bin\Debug\Lab6.exe.config
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\bin\Debug\Lab6.exe
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\bin\Debug\Lab6.pdb
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\obj\Debug\Lab6.csprojResolveAssemblyReference.cache
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\obj\Debug\Lab6.exe
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\obj\Debug\Lab6.pdb
+=======
+C:\VisualStudioProjects\CSD221W17_FredCarella_csharp\Lab6\bin\Debug\Lab6.exe.config
+>>>>>>> 937e080603bdfaefcb646f6718fe2efb7d46f8d8
+S:\My Documents\Visual Studio 2015\Projects\C#\Lab6\bin\Debug\MySql.Data.dll

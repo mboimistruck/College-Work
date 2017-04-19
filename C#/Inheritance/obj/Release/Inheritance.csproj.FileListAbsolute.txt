@@ -1,0 +1,5 @@
+E:\VisualStudio15Projects\CSD221W17\Inheritance\bin\Release\Inheritance.exe.config
+E:\VisualStudio15Projects\CSD221W17\Inheritance\bin\Release\Inheritance.exe
+E:\VisualStudio15Projects\CSD221W17\Inheritance\bin\Release\Inheritance.pdb
+E:\VisualStudio15Projects\CSD221W17\Inheritance\obj\Release\Inheritance.exe
+E:\VisualStudio15Projects\CSD221W17\Inheritance\obj\Release\Inheritance.pdb

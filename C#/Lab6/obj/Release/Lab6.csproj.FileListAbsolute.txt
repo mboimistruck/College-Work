@@ -1,0 +1,6 @@
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Release\Lab6.exe.config
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Release\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17\Lab6\bin\Release\Lab6.pdb
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Release\Lab6.csprojResolveAssemblyReference.cache
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Release\Lab6.exe
+E:\VisualStudio15Projects\CSD221W17\Lab6\obj\Release\Lab6.pdb
